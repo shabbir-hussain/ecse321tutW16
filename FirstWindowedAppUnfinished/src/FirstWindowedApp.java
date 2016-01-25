@@ -10,6 +10,7 @@ import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.IDN;
+import javax.swing.JPanel;
 
 
 public class FirstWindowedApp {
@@ -18,6 +19,7 @@ public class FirstWindowedApp {
 	private JTextField textField;
 	private JEditorPane editorPane;
 	private JButton btnGo;
+	private JTextField textField_1;
 
 	/**
 	 * Launch the application.
@@ -50,9 +52,33 @@ public class FirstWindowedApp {
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
+		
+		
+		textField = new JTextField();
+		frame.getContentPane().add(textField_1, BorderLayout.NORTH);
+		textField.setColumns(10);
+		
+		final JEditorPane editorPane = new JEditorPane();
+		frame.getContentPane().add(editorPane, BorderLayout.CENTER);
+		
 		// TODO ADD TEXT FIELD, EDITOR PANE AND BUTTON
 		// TODO FORMAT HOW THEY APPEAR
 		// TODO WIRE BUTTON TO ACTION LISTENER
+		final JButton btnNewButton = new JButton("Go");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent ac) {
+				try {
+			          String url = textField.getText().toLowerCase();
+			          if (url.startsWith("http://"))
+			            url = url.substring(7);
+			          editorPane.setPage("http://" + IDN.toASCII(url));
+			        } catch (Exception e) {
+			          e.printStackTrace();
+			          JOptionPane.showMessageDialog( btnGo, "Browser problem: " + e.getMessage());
+			        }
+			}
+		});
+		frame.getContentPane().add(btnNewButton, BorderLayout.EAST);
 		
 	}
 	
