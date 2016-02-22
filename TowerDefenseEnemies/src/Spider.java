@@ -1,5 +1,5 @@
 
-public class Spider extends Enemies{
+public class Spider extends Enemies implements dumbmap{
 
 	public Spider(){
 		health = 100;
