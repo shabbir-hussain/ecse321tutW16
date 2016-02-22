@@ -6,6 +6,8 @@ public class DecoratorDemo {
 		//make a new basic ship
 		BasicShip basic = new BasicShip();
 		basic.FireLasers();
+		System.out.println();
+
 		
 		//make the basic ship faster
 		FastShip fast = new FastShip(basic);
@@ -13,10 +15,9 @@ public class DecoratorDemo {
 		fast.FireLasers();
 		
 		System.out.println();
-		System.out.println();
 		
 		//this is how you can make something awesome!
-		DefensiveShip boss = new DefensiveShip(new FastShip(new FastShip(new BasicShip())));
+		DefensiveShip boss = new DefensiveShip(new DefensiveShip(new FastShip(new BasicShip())));
 		boss.PowerUP();
 		boss.FireLasers();
 		

@@ -1,18 +1,16 @@
 package Decorator;
 
-public abstract class PowerfulShip implements SpaceShip{
+public abstract class PowerfulShip extends SpaceShip{
 
-	SpaceShip s;
-	
+	SpaceShip p;
 	public PowerfulShip(SpaceShip ship){
-		s=ship;
+		p= ship;
 	}
 
 	
 	@Override
 	public void FireLasers() {
-		s.FireLasers();
-		
+		p.FireLasers();
 	}
 	
 	public abstract void PowerUP();

@@ -1,6 +1,9 @@
 package Decorator;
 
-public interface SpaceShip {
+public abstract class SpaceShip {
 	
-	public void FireLasers();
+	
+	public abstract void FireLasers();
+	public abstract void PowerUP();
+
 }
